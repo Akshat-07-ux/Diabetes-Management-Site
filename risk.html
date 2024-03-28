@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <title>Diabetes Risk Check</title>
+
+</head>
+
+<body>
+    <div class="heartbeat">
+        <i class="fas fa-heart"></i>
+    </div>
+    <div class="heartbeat-1">
+        <i class="fas fa-heart"></i>
+    </div>
+    <div class="box">
+        <input type="file" id="photo-upload" accept="image/*" onchange="displayFileName(this); previewImage();">
+        <label for="photo-upload" id="photo-label">Choose File to upload</label>
+    </div>
+    <div id="photo-container">
+        <img id="uploaded-photo" style="display: none; max-width: 200px; max-height: 200px; float: right; margin-top: 12px; margin-right: 80px;" />
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="form-container">
+                <h3> INSULIN TEST </h3>
+                <label for="name">Name:</label>
+                <input type="text" id="name" autocomplete="off">
+                <label for="age">Age:</label>
+                <input type="number" id="age" autocomplete="off">
+                <div class="question">
+                    <div class="options-container">
+                        <div class="selected-option" onclick="toggleOptions()">&#9660; Select Sex</div>
+                        <div class="options">
+                            <div class="option" onclick="selectSex('Male')">Male</div>
+                            <div class="option" onclick="selectSex('Female')">Female</div>
+                            <div class="option" onclick="selectSex('Other')">Other</div>
+                        </div>
+                    </div>
+                    <div id="sex-label" class="answer"></div>
+                </div>
+                <div id="sex-label" class="answer"></div>
+                <label for="blood-sugar">Blood Sugar:</label>
+                <input type="number" id="blood-sugar" placeholder="Enter Blood Sugar" autocomplete="off">
+                <label for="systolic">Systolic Blood Pressure:</label>
+                <input type="number" id="systolic" placeholder="Enter Systolic BP">
+
+                <label for="diastolic">Diastolic Blood Pressure:</label>
+                <input type="number" id="diastolic" placeholder="Enter Diastolic BP">
+                <button onclick="checkRisk1()">Check</button>
+                <div id="result1"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="form-container">
+                <h3> FASTING BLOOD GLUCOSE LEVEL TEST </h3>
+                <label for="blood-sugar">Fasting Blood Glucose Level</label>
+                <input type="number" id="fbiac" placeholder="Enter FBGL" autocomplete="off">
+                <button onclick="checkRisk2()">Check</button>
+                <div id="result2"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="form-container">
+                <h3> POST PRANDIOL TEST </h3>
+                <label for="blood-sugar">Post Prandiol</label>
+                <input type="number" id="prandiol" placeholder="Enter PP value" autocomplete="off">
+                <button onclick="checkRisk3()">Check</button>
+                <div id="result3"></div>
+            </div>
+        </div>
+    </div>
+
+    <button class="combined-report-button" id="generate-report-button" onclick="generateCombinedReport()">Generate
+        Combined Report</button>
+
+
+
+</body>
+
+</html>

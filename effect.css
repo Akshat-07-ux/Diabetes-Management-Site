@@ -1,0 +1,53 @@
+body {
+    background-color: lightskyblue;
+    font-family: Arial, sans-serif;
+}
+
+.about {
+    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.about-text h2 {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 20px;
+    animation: scaleAnimation 1s ease-in-out infinite alternate;
+}
+
+
+
+.about-text h2 span {
+    color: rgb(86, 27, 212);
+    transform-origin: 50% 50%;
+    animation: scaleAnimation 1s ease-in-out infinite alternate;
+}
+
+@keyframes scaleAnimation {
+    to {
+        transform: scale(1.2);
+    }
+}
+
+.about-text {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+
+.about-text p {
+    display: block;
+    color:mediumblue;
+    font-size: 20px;
+    line-height: 1.6;
+    margin-top: -25px;
+}
+
+
+.about-text h3{
+    color: black;
+
+}
